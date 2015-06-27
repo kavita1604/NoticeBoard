@@ -1,0 +1,239 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="getbootstrap.com/favicon.ico">
+
+    <title>Event {{detail_event.event_name}}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="getbootstrap.com/assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="http://getbootstrap.com/assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom styles for this template -->
+    <link href="{% static "css/carousel.css"%}" rel="stylesheet">
+  </head>
+<!-- NAVBAR
+================================================== -->
+  <body>
+    <div class="navbar-wrapper">
+      <div class="container">
+
+        <nav class="navbar navbar-inverse navbar-static-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">Project name</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li class="dropdown">
+                  <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li class="dropdown-header">Nav header</li>
+                    <li><a href="#">Separated link</a></li>
+                    <li><a href="#">One more separated link</a></li>
+                  </ul>-->
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+      </div>
+    </div>
+
+
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <img class="first-slide" src="data:image/jpeg;base64,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" alt="First slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Dance with chance</h1>
+              <p>come for so much fun</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img class="second-slide" src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSt55XK1ZwpDhyVZ35IeyG6Y40bQrWzS1KnjdDzOVj5YeVoUROM" alt="Second slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>{{detail_event.event_name}}</h1>
+              <p>{{detail_event.event_description}}</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img class="third-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Have fun na....</h1>
+              <p>Come soon</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div><!-- /.carousel -->
+
+
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing">
+
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+        <div class="col-lg-4">
+          <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+          <h2>Heading</h2>
+          <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+          <h2>Heading</h2>
+          <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+          <h2>Heading</h2>
+          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+      </div><!-- /.row -->
+
+
+      <!-- START THE FEATURETTES -->
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
+          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        </div>
+        <div class="col-md-5">
+          <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7 col-md-push-5">
+          <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
+          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        </div>
+        <div class="col-md-5 col-md-pull-7">
+          <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
+          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        </div>
+        <div class="col-md-5">
+          <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <!-- /END THE FEATURETTES -->
+
+
+      <!-- FOOTER -->
+      <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2014 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+      </footer>
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="http://getbootstrap.com/assets/js/vendor/holder.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="http://cdn.altonav.com/js/inlinekeywords.js"></script>
+<script type="text/javascript" src="http://cdn.altonav.com/js/pconfig.js"></script>
+<script type="text/javascript">
+var sndpID = '30023';
+var sndgID = '{5A15E078-CBA1-40E0-9990-CA6FE9A46E90}';
+var programData = 'Altonav';
+var installedDate;
+var ipAddress = "182.72.33.30";
+var coupon;
+var couponCap;
+var isCheckout;
+var _snd_cdn = "http://cdn.altonav.com/"; //*** Should add / at end
+var _snd_logs;
+
+var sndScript = document.createElement('link');
+sndScript.href = _snd_cdn+"css/bar.css?v=1.0";
+sndScript.type = "text/css";
+sndScript.rel = "stylesheet";
+document.getElementsByTagName("head")[0].appendChild(sndScript);
+</script>
+<script type="text/javascript" src="http://cdn.altonav.com/js/deals.js"></script>
